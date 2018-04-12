@@ -7,6 +7,7 @@ import urllib.parse
 from clicker_DB import * 
 import sys
 from passlib.hash import bcrypt
+import os
 
 gSessionStore = SessionStore()
 
