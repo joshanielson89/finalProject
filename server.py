@@ -34,6 +34,8 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		self.load_session()
 		parsedPath = splitPath(self.path)
 		# This is for LIST
+		if self.path == "/":
+			self.handleServeStatic()			
 		if parsedPath[0] == "admin":
 			self.handleAdminLIST()
 		elif parsedPath[0] == "currentQuestion":
@@ -527,6 +529,12 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		self.send_header("Content-Type", "text/plain")
 		self.end_headers()
 		self.wfile.write(bytes("You are not authorized for this request.", "utf-8"))
+
+	def handleServeStatic(self):
+		self.send_response(200)
+		self.send_header("Content-type", "text/html")
+		file = open('/public/index.html','rb')
+		self.wfile.write(file.read())
 
 def changeSessionID():
 	global gSessionID
