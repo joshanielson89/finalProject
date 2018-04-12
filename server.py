@@ -35,8 +35,8 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		self.load_session()
 		parsedPath = splitPath(self.path)
 		# This is for LIST
-		# if self.path == "/":
-		# 	self.handleServeStatic()			
+		if self.path == "/":
+			self.handleServeStatic()			
 		if parsedPath[0] == "admin":
 			self.handleAdminLIST()
 		elif parsedPath[0] == "currentQuestion":
