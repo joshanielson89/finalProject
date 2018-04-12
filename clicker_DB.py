@@ -8,7 +8,7 @@ import os
 class adminDB:
 	def __init__(self):
 		urllib.parse.uses_netloc.append("postgress")
-		url = urllib.parse.urlpars(os.environ["DATABASE_URL"])
+		url = urllib.parse.urlparse(os.environ["DATABASE_URL"])
 		self.connection = psycopg2.connect(
 			cursor_factory = psycopg2.extras.RealDictCursor,
 			database = url.path[1:],
@@ -61,7 +61,7 @@ class adminDB:
 class questionDB:
 	def __init__(self):
 		urllib.parse.uses_netloc.append("postgress")
-		url = urllib.parse.urlpars(os.environ["DATABASE_URL"])
+		url = urllib.parse.urlparse(os.environ["DATABASE_URL"])
 		self.connection = psycopg2.connect(
 			cursor_factory = psycopg2.extras.RealDictCursor,
 			database = url.path[1:],
