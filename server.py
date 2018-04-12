@@ -550,7 +550,20 @@ def splitPath(path):
 
 
 def main():
-	listen = ("127.0.0.1", 8081)
+	admindb = adminDB()
+	questiondb = questionDB()
+	admindb.createAdminTable()
+	questiondb.createTopicTable()
+	questiondb.createQuestionTable()
+	admindb = None
+	questiondb = None
+
+	port = 8080
+	if len(sys.argv) > 1:
+		port = int(sys.argv[1])
+
+
+	listen = ("0.0.0.0", port)
 	server = HTTPServer(listen ,MyRequestHandler)
 
 	print("Listening...")
