@@ -533,8 +533,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		self.end_headers()
 		self.wfile.write(bytes("You are not authorized for this request.", "utf-8"))
 
-	def ServeStatic(self):
-
+	def serveStatic(self):
 		if self.path == "/":
 			self.send_response(200)
 			self.send_header("Content-type", "text/html")
