@@ -35,8 +35,10 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		self.load_session()
 		parsedPath = splitPath(self.path)
 		# This is for LIST
-		if self.path == "/":
-			self.handleServeStatic()			
+
+		#serves html, css, js to client
+		self.serveStatic()
+
 		if parsedPath[0] == "admin":
 			self.handleAdminLIST()
 		elif parsedPath[0] == "currentQuestion":
@@ -531,13 +533,36 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		self.end_headers()
 		self.wfile.write(bytes("You are not authorized for this request.", "utf-8"))
 
-	def handleServeStatic(self):
-		self.send_response(200)
-		self.send_header("Content-type", "text/html")
-		self.end_headers()
-		file = open('public/index.html','rb')
-		self.wfile.write(file.read())
-		return
+	def ServeStatic(self):
+
+		if self.path == "/":
+			self.send_response(200)
+			self.send_header("Content-type", "text/html")
+			self.end_headers()
+			file = open('public/index.html','rb')
+			self.wfile.write(file.read())
+			return
+		elif self.path == "/style.css":
+			self.send_response(200)
+			self.send_header("Content-Type", "text/css")
+			self.end_headers()
+			file = open('public/style.css', 'rb')
+			self.wfile.write(file.read())
+			return
+		elif self.path == "/login.js":
+			self.send_response(200)
+			self.send_header("Content-Type", "text/javascript")
+			self.end_headers()
+			file = open('public/login.js','rb')
+			self.wfile.write(file.read())
+			return 
+		elif self.path == "/easytimer.min.js"
+			self.send_response(200)
+			self.send_header('Content-Type', 'text/javascript')
+			self.end_headers()
+			file = open('public/easytimer.min.js', 'rb')
+			self.wfile.write(file.read())
+			return
 
 def changeSessionID():
 	global gSessionID
