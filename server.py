@@ -533,7 +533,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 	def handleServeStatic(self):
 		self.send_response(200)
 		self.send_header("Content-type", "text/html")
-		file = open('/public/index.html','rb')
+		file = open('public/index.html','rb')
 		self.wfile.write(file.read())
 
 def changeSessionID():
