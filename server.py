@@ -565,8 +565,8 @@ def main():
 	if len(sys.argv) > 1:
 		port = int(sys.argv[1])
 
-	public_dir = os.path.join(os.path.dirname(__file__),'public')
-	os.chdir(public_dir)
+	# public_dir = os.path.join(os.path.dirname(__file__),'public')
+	# os.chdir(public_dir)
 
 	listen = ("0.0.0.0", port)
 	server = HTTPServer(listen ,MyRequestHandler)
