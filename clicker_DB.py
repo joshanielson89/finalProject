@@ -80,11 +80,11 @@ class questionDB:
 
 	def createTopicTable(self):
 		self.cursor.execute("CREATE TABLE IF NOT EXISTS TopicList(uid SERIAL PRIMARY KEY, topic VARCHAR(1000))")
-        self.connection.commit()
+		self.connection.commit()
 
 	def createQuestionTable(self):
-		self.cursor.execute("CREATE TABLE IF NOT EXISTS QuestionTable(uid SERIAL PRIMARY KEY, question VARCHAR(1000), choiceA VARCHAR(1000), choiceB VARCHAR(1000), choiceC VARCHAR(1000), choiceD VARCHAR(1000))")
-        self.connection.commit()
+		self.cursor.execute("CREATE TABLE IF NOT EXISTS QuestionTable(uid SERIAL PRIMARY KEY, question VARCHAR(1000), choiceA VARCHAR(1000), choiceB VARCHAR(1000), choiceC VARCHAR(1000), choiceD VARCHAR(1000))"
+		self.connection.commit()
 
 
 
