@@ -79,7 +79,7 @@ class questionDB:
 		print("disconnecting...")
 
 	def createTopicTable(self):
-        self.cursor.execute("CREATE TABLE IF NOT EXISTS TopicList(uid SERIAL PRIMARY KEY, topic VARCHAR(1000))")
+    	self.cursor.execute("CREATE TABLE IF NOT EXISTS TopicList(uid SERIAL PRIMARY KEY, topic VARCHAR(1000))")
         self.connection.commit()
 
 	def createQuestionTable(self):
