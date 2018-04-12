@@ -36,7 +36,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		# This is for LIST
 		if self.path == "/":
 			self.handleServeStatic()			
-		if parsedPath[0] == "admin":
+		elif parsedPath[0] == "admin":
 			self.handleAdminLIST()
 		elif parsedPath[0] == "currentQuestion":
 			self.handleReturnQuestion()
