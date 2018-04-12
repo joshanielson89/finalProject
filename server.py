@@ -556,7 +556,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 			file = open('public/login.js','rb')
 			self.wfile.write(file.read())
 			return 
-		elif self.path == "/easytimer.min.js"
+		elif self.path == "/easytimer.min.js":
 			self.send_response(200)
 			self.send_header('Content-Type', 'text/javascript')
 			self.end_headers()
