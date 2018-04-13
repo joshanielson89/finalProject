@@ -83,7 +83,7 @@ class questionDB:
 		self.connection.commit()
 
 	def createQuestionTable(self):
-		self.cursor.execute("CREATE TABLE IF NOT EXISTS QuestionList(qid SERIAL PRIMARY KEY, question VARCHAR(1000), choiceA VARCHAR(1000), choiceB VARCHAR(1000), choiceC VARCHAR(1000), choiceD VARCHAR(1000))")
+		self.cursor.execute("CREATE TABLE IF NOT EXISTS QuestionList(qid SERIAL PRIMARY KEY, question VARCHAR(1000), topicID, choiceA VARCHAR(1000), choiceB VARCHAR(1000), choiceC VARCHAR(1000), choiceD VARCHAR(1000))")
 		self.connection.commit()
 
 
