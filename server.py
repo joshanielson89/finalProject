@@ -26,7 +26,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 	def do_OPTIONS(self):
 		self.load_session()
 		self.send_response(200)
-		#self.send_header("Access-Control-Allow-Origin", "*")
+		# self.send_header("Access-Control-Allow-Origin", self.headers['Origin'])
 		self.send_header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
 		self.send_header("Access-Control-Allow-Headers", "Content-type")
 		self.end_headers()
@@ -180,7 +180,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		db.deleteRecord(int(parsedPath[1]))
 		self.send_response(200) #200 means "ok"
 		self.send_header("Content-type", "application/json")
-		#self.send_header("Access-Control-Allow-Origin", "*")
+		# self.send_header("Access-Control-Allow-Origin",self.headers['Origin'])
 		self.end_headers()
 		return
 
@@ -523,7 +523,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 
 	def end_headers(self):
 		self.send_cookie()
-		self.send_header('Access-Control-Allow-Origin', "*")
+		self.send_header('Access-Control-Allow-Origin', self.headers['Origin'])
 		self.send_header('Access-Control-Allow-Credentials', 'true')
 		BaseHTTPRequestHandler.end_headers(self)
 
