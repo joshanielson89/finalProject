@@ -26,7 +26,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 	def do_OPTIONS(self):
 		self.load_session()
 		self.send_response(200)
-		self.send_header("Access-Control-Allow-Origin", self.headers['Origin'])
+		self.send_header("Access-Control-Allow-Origin", '*')
 		self.send_header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
 		self.send_header("Access-Control-Allow-Headers", "Content-type")
 		self.end_headers()
@@ -165,7 +165,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 
 			self.send_response(201)
 			self.send_cookie()
-			self.send_header('Access-Control-Allow-Origin', self.headers['Origin'])
+			self.send_header('Access-Control-Allow-Origin', '*')
 			self.send_header('Access-Control-Allow-Credentials', 'true')
 			self.send_header("Content-Type", "text/plain")
 			self.end_headers()
@@ -174,7 +174,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 			print("hit admin else")
 			self.send_response(422)
 			self.send_cookie()
-			self.send_header('Access-Control-Allow-Origin', self.headers['Origin'])
+			self.send_header('Access-Control-Allow-Origin', '*')
 			self.send_header('Access-Control-Allow-Credentials', 'true')
 			self.send_header("Content-Type", "text/plain")
 			self.end_headers()
@@ -186,10 +186,10 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		db.deleteRecord(int(parsedPath[1]))
 		self.send_response(200) #200 means "ok"
 		self.send_cookie()
-		self.send_header('Access-Control-Allow-Origin', self.headers['Origin'])
+		self.send_header('Access-Control-Allow-Origin', '*')
 		self.send_header('Access-Control-Allow-Credentials', 'true')
 		self.send_header("Content-type", "application/json")
-		# self.send_header("Access-Control-Allow-Origin",self.headers['Origin'])
+		# self.send_header("Access-Control-Allow-Origin",'*')
 		self.end_headers()
 		return
 
@@ -260,7 +260,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		db.createNewTopic(question)
 		self.send_response(201) #201 means "created"
 		self.send_cookie()
-		self.send_header('Access-Control-Allow-Origin', self.headers['Origin'])
+		self.send_header('Access-Control-Allow-Origin', '*')
 		self.send_header('Access-Control-Allow-Credentials', 'true')
 		#self.send_header("Access-Control-Allow-Origin", "*")
 		self.end_headers()
@@ -286,7 +286,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		db.createNewQuestion(question, topic, choice1, choice2, choice3, choice4)
 		self.send_response(201) #201 means "created"
 		self.send_cookie()
-		self.send_header('Access-Control-Allow-Origin', self.headers['Origin'])
+		self.send_header('Access-Control-Allow-Origin', '*')
 		self.send_header('Access-Control-Allow-Credentials', 'true')
 		#self.send_header("Access-Control-Allow-Origin", "*")
 		self.end_headers()
@@ -297,7 +297,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		db.deleteTopic(int(parsedPath[1]))
 		self.send_response(200) #200 means "ok"
 		self.send_cookie()
-		self.send_header('Access-Control-Allow-Origin', self.headers['Origin'])
+		self.send_header('Access-Control-Allow-Origin', '*')
 		self.send_header('Access-Control-Allow-Credentials', 'true')
 		self.send_header("Content-type", "application/json")
 		#self.send_header("Access-Control-Allow-Origin", "*")
@@ -309,7 +309,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		db.deleteQuestion(int(parsedPath[1]))
 		self.send_response(200) #200 means "ok"
 		self.send_cookie()
-		self.send_header('Access-Control-Allow-Origin', self.headers['Origin'])
+		self.send_header('Access-Control-Allow-Origin', '*')
 		self.send_header('Access-Control-Allow-Credentials', 'true')
 		self.send_header("Content-type", "application/json")
 		#self.send_header("Access-Control-Allow-Origin", "*")
@@ -416,7 +416,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		print("A: " + str(gAnswerCountA) + "\n" + "B: " + str(gAnswerCountB) + "\n" + "C: " + str(gAnswerCountC) + "\n" + "D: " + str(gAnswerCountD) + "\n")
 		self.send_response(201) #201 means "created"
 		self.send_cookie()
-		self.send_header('Access-Control-Allow-Origin', self.headers['Origin'])
+		self.send_header('Access-Control-Allow-Origin', '*')
 		self.send_header('Access-Control-Allow-Credentials', 'true')
 		#self.send_header("Access-Control-Allow-Origin", "*")
 		self.end_headers()
@@ -453,7 +453,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 				self.session["userId"] = userData["id"]
 				self.send_response(200)
 				self.send_cookie()
-				self.send_header('Access-Control-Allow-Origin', self.headers['Origin'])
+				self.send_header('Access-Control-Allow-Origin', '*')
 				self.send_header('Access-Control-Allow-Credentials', 'true')
 				self.send_header("Content-Type", "text/plain")
 				self.end_headers()
@@ -496,7 +496,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 				self.send_response(200)
 				db.updateRecord(userData['FirstName'], userData['LastName'], userData['username'], newPassword, userData['id'])
 				self.send_cookie()
-				self.send_header('Access-Control-Allow-Origin', self.headers['Origin'])
+				self.send_header('Access-Control-Allow-Origin', '*')
 				self.send_header('Access-Control-Allow-Credentials', 'true')	
 				self.send_header("Content-Type", "text/plain")
 				self.end_headers()
@@ -541,7 +541,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		self.send_response(200) #200 means "ok"
 		self.send_header("Content-type", "application/json")
 		self.send_cookie()
-		self.send_header('Access-Control-Allow-Origin', self.headers['Origin'])
+		self.send_header('Access-Control-Allow-Origin', '*')
 		self.send_header('Access-Control-Allow-Credentials', 'true')# "*" means anyone can access it
 		#self.send_header("Access-Control-Allow-Origin", "*")
 		self.end_headers()
@@ -550,7 +550,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 	def send404(self):
 		self.send_response(404)
 		self.send_cookie()
-		self.send_header('Access-Control-Allow-Origin', self.headers['Origin'])
+		self.send_header('Access-Control-Allow-Origin', '*')
 		self.send_header('Access-Control-Allow-Credentials', 'true')
 		self.end_headers()
 		self.wfile.write(bytes("Content not found", "utf-8"))
@@ -560,7 +560,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 	def handle401(self):
 		self.send_response(401)
 		self.send_cookie()
-		self.send_header('Access-Control-Allow-Origin', self.headers['Origin'])
+		self.send_header('Access-Control-Allow-Origin', '*')
 		self.send_header('Access-Control-Allow-Credentials', 'true')
 		self.send_header("Content-Type", "text/plain")
 		self.end_headers()
