@@ -484,8 +484,8 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 			arr = arr[0]
 			userData = {
 				'id': arr['ID'],
-				'FirstName': arr['fName'],
-				'LastName': arr['lName'],
+				'FirstName': arr['fname'],
+				'LastName': arr['lname'],
 				'username': arr['username'],
 				'Password': arr['password']
 			}
