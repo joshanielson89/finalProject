@@ -354,6 +354,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		#response code here
 		self.getInit()
 		global gCurrentQuestion
+		print(gCurrentQuestion)
 		lines = json.dumps(gCurrentQuestion)
 		self.wfile.write(bytes(lines, "utf-8"))
 		return 
