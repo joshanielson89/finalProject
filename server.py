@@ -152,8 +152,8 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		print("body is: ", body)
 		print("parsed body is: ", parsed_body)
 
-		fname = parsed_body["fname"]
-		lname = parsed_body["lname"]
+		fname = parsed_body["fName"]
+		lname = parsed_body["lName"]
 		username = parsed_body["username"]
 		password = bcrypt.encrypt(parsed_body["password"])
 		print(len(db.checkUsername(username)))
