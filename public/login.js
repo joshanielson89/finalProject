@@ -897,10 +897,10 @@ function projectCurrentQuestion(question) {
 					questionDiv.setAttribute("id", "#questionDiv");
 					var currentQuestionHTML = "<div id = 'questionBro'>" + 
 												'<div id = "currentQuestion">'+ question.question + '<br>' + '</div>'+
-												'<div class = "answerChoices">' + "A: " + question.choiceA + '<br>' + '</div>'+
-												'<div class = "answerChoices">' + "B: " + question.choiceB + '<br>' + '</div>'+
-												'<div class = "answerChoices">' + "C: " + question.choiceC + '<br>' + '</div>'+
-												'<div class = "answerChoices">' + "D: " + question.choiceD + '<br>' + '</div>'+
+												'<div class = "answerChoices">' + "A: " + question.choicea + '<br>' + '</div>'+
+												'<div class = "answerChoices">' + "B: " + question.choicea + '<br>' + '</div>'+
+												'<div class = "answerChoices">' + "C: " + question.choicec + '<br>' + '</div>'+
+												'<div class = "answerChoices">' + "D: " + question.choiced + '<br>' + '</div>'+
 										  "</div>"
 					questionDiv.innerHTML = currentQuestionHTML;
 					wrapperDiv.appendChild(questionDiv);
