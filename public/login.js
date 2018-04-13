@@ -320,7 +320,7 @@ function startAdminPage() {
 				deleteQuestion.onclick = function() {
 					//call delete here and make sure to confirm action with user
 					if(confirm("Are you sure you want to delete this record")){
-						deleteTopicFromDB(record.ID);
+						deleteTopicFromDB(record.tid);
 					} 
 					console.log("record deleted");
 				}
