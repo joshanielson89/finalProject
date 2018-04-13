@@ -39,16 +39,16 @@ class adminDB:
 		return self.cursor.fetchall()
 
 	def getRecord(self, adminID):
-		self.cursor.execute("SELECT * FROM adminList WHERE ID = %s", [adminID])
+		self.cursor.execute("SELECT * FROM adminList WHERE uid = %s", [adminID])
 		return self.cursor.fetchone()
 
 	def deleteRecord(self, adminID):
-		self.cursor.execute("DELETE FROM adminList WHERE ID = %s", [adminID])
+		self.cursor.execute("DELETE FROM adminList WHERE uid = %s", [adminID])
 		self.connection.commit()
 		return 
 
 	def updateRecord(self, fName, lName, username, password, value):
-		self.cursor.execute("UPDATE adminList  SET fName = %s, lName = %s, username = %s, password = %s WHERE ID = %s",
+		self.cursor.execute("UPDATE adminList  SET fName = %s, lName = %s, username = %s, password = %s WHERE uid = %s",
 			[fName, lName, username, password, value])
 		self.connection.commit()
 		
@@ -108,28 +108,28 @@ class questionDB:
 		return self.cursor.fetchall()
 
 	def getTopic(self, topicId):
-		self.cursor.execute("SELECT * FROM TopicList WHERE ID = %s", [topicId])
+		self.cursor.execute("SELECT * FROM TopicList WHERE tid = %s", [topicId])
 		return self.cursor.fetchone()
 
 	def getQuestion(self, questionId):
-		self.cursor.execute("SELECT * FROM questionList WHERE ID = %s", [questionId])
+		self.cursor.execute("SELECT * FROM questionList WHERE qid = %s", [questionId])
 		return self.cursor.fetchone()
 
 	def deleteTopic(self, topidId):
-		self.cursor.execute("DELETE FROM TopicList WHERE ID = %s", [topidId])
+		self.cursor.execute("DELETE FROM TopicList WHERE tid = %s", [topidId])
 		self.connection.commit()
 		self.cursor.execute("DELETE FROM questionList WHERE topicID = %s", [topidId])
 		self.connection.commit()
 		return 
 
 	def deleteQuestion(self, questionId):
-		self.cursor.execute("DELETE FROM questionList WHERE ID = %s", [questionId])
+		self.cursor.execute("DELETE FROM questionList WHERE qid = %s", [questionId])
 		self.connection.commit()
 		return 
 
 
 	def updateQuestion(self, question, value):
-		self.cursor.execute("UPDATE questionList  SET question = %s WHERE ID = %s",
+		self.cursor.execute("UPDATE questionList  SET question = %s WHERE qid = %s",
 			[question, value])
 		self.connection.commit()
 		return
