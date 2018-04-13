@@ -66,7 +66,7 @@ function startLoginPage() {
 		// check to see if the credentials are valid
 		adminLogin.onclick = function() {
 			var data = encodeURI("username="+ username.value + "&password=" + password.value);
-			fetch("https://clikkr.herokuapp.com/users/sessions", {
+			fetch("https://clikkr.herokuapp.com/session", {
 				method: "POST",
 				body: data,
 				headers: {"Content-Type": "application/x-www-form-urlencoded"}
