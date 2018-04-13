@@ -30,7 +30,7 @@ class adminDB:
 
 
 	def createNewRecord(self, fName, lName, username, password):
-		self.cursor.execute("INSERT INTO adminList (fName, lName, username, password) VAlUES (%s, %s, %s, %s)",
+		self.cursor.execute("INSERT INTO adminList (fname, lname, username, password) VAlUES (%s, %s, %s, %s)",
 			[fName, lName, username, password])
 		self.connection.commit()
 
