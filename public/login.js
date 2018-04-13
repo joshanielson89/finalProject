@@ -365,7 +365,7 @@ function startQuestionPage(topicID) {
 				newQuestionDiv.appendChild(questionBubble);
 				questionBubble.onclick = function() {
 					console.log("Send question to server");
-					setCurrentQuestion(record.ID);
+					setCurrentQuestion(record.qid);
 				}
 
 				var delQuestion = document.createElement("button");
@@ -376,7 +376,7 @@ function startQuestionPage(topicID) {
 				delQuestion.onclick = function() {
 					//call delete here and make sure to confirm action with user
 					if(confirm("Are you sure you want to delete this question?")){
-						deleteQuestionFromDB(record.ID);
+						deleteQuestionFromDB(record.qid);
 					} 
 					console.log("record deleted");
 								}
@@ -587,7 +587,7 @@ function startAccountOptionsPage() {
 					console.log("hello2")
 					// make sure to confirm action with user
 					if(confirm("Are you sure you want to delete this record")){
-						deleteAdminFromDB(record.ID);
+						deleteAdminFromDB(record.uid);
 					} 
 					// console.log("record deleted");
 				}
@@ -774,7 +774,7 @@ function projectCurrentQuestion(question) {
 					// Display the Session ID
 					var sessionidDiv = document.createElement("div");
 					sessionidDiv.setAttribute("id", "#sessionidDiv");
-					sessionidDiv.innerHTML = "Session ID: " + questionData;
+					sessionidDiv.innerHTML = "Session: " + questionData;
 					wrapperDiv.appendChild(sessionidDiv);
 
 					var timerDiv = document.createElement("div");
