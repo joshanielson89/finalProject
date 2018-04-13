@@ -202,10 +202,10 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		print("parsed body is: ", parsed_body)
 
 		#this is what the user input
-		fName = parsed_body["fname"]
-		lName = parsed_body["lname"]
+		fName = parsed_body["fName"]
+		lName = parsed_body["lName"]
 		username = parsed_body["username"]
-		thisId = parsed_body["ID"]
+		thisId = parsed_body["uid"]
 
 		arr = db.checkUsername(username)
 		print(db.checkUsername(username))
@@ -213,7 +213,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 			print(arr)
 			arr = arr[0]
 			userData = {
-				'id': arr['ID'],
+				'id': arr['uid'],
 				'FirstName': arr['fName'],
 				'LastName': arr['lName'],
 				'username': arr['username'],
@@ -276,7 +276,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		print("parsed body is: ", parsed_body)
 
 		question = parsed_body["question"]
-		topic = parsed_body["topic"]
+		topic = parsed_body["topicID"]
 		choice1 = parsed_body["choiceA"]
 		choice2 = parsed_body["choiceB"]
 		choice3 = parsed_body["choiceC"]
