@@ -898,7 +898,7 @@ function projectCurrentQuestion(question) {
 					var currentQuestionHTML = "<div id = 'questionBro'>" + 
 												'<div id = "currentQuestion">'+ question.question + '<br>' + '</div>'+
 												'<div class = "answerChoices">' + "A: " + question.choicea + '<br>' + '</div>'+
-												'<div class = "answerChoices">' + "B: " + question.choicea + '<br>' + '</div>'+
+												'<div class = "answerChoices">' + "B: " + question.choiceb + '<br>' + '</div>'+
 												'<div class = "answerChoices">' + "C: " + question.choicec + '<br>' + '</div>'+
 												'<div class = "answerChoices">' + "D: " + question.choiced + '<br>' + '</div>'+
 										  "</div>"
