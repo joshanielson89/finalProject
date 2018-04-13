@@ -276,7 +276,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 		print("parsed body is: ", parsed_body)
 
 		question = parsed_body["question"]
-		topic = parsed_body["topicID"]
+		topic = parsed_body["topic"]
 		choice1 = parsed_body["choiceA"]
 		choice2 = parsed_body["choiceB"]
 		choice3 = parsed_body["choiceC"]
