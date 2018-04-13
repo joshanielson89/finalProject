@@ -441,7 +441,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 			print(arr)
 			arr = arr[0]
 			userData = {
-				'id': arr['ID'],
+				'id': arr['uid'],
 				'FirstName': arr['fName'],
 				'LastName': arr['lName'],
 				'username': arr['username'],
