@@ -72,7 +72,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 			self.handleAnswerPOST()
 		elif self.path == "/question":
 			self.handleQuestionPOST()
-		elif splitPath(self.path)[1] == "sessions":
+		elif splitPath(self.path)[0] == "sessions":
 			self.handleLogin()
 
 		## otherwise, not found
