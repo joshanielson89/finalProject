@@ -17,10 +17,15 @@ function startLoginPage() {
 	// create admin button selector
 	var adminAccountButton = document.createElement("button");
 	adminAccountButton.setAttribute("id", "#adminAccountButton");
-	adminAccountButton.innerHTML = "Administrator";
+	adminAccountButton.innerHTML = "Login";
+
+	var registerAdminButton = document.createElement("button");
+	registerAdminButton.setAttribute('id', '#registerAdminButton');
+	registerAdminButton.innerHTML = "Register";
 
 	
 	// append admin to wrapper
+	adminDiv.appendChild(registerAdminButton);
 	adminDiv.appendChild(adminAccountButton);
 	wrapperDiv.appendChild(adminDiv);
 
@@ -43,6 +48,47 @@ function startLoginPage() {
 
 	// append student to wrapper
 	wrapperDiv.appendChild(studentDiv);
+	registerAdminButton.onclick = function() {
+		adminDiv.innerHTML = "";
+		var fName = document.createElement('input');
+		fName.setAttribute("placeholder", 'First Name');
+		fName.setAttribute('id', "#fName");
+
+		var lName = document.createElement('input');
+		lName.setAttribute('placeholder', 'Last Name');
+		lName.setAttribute('id', '#lName');
+
+		var username = document.createElement("input");
+		username.setAttribute("placeholder", "Username");
+		username.setAttribute("id", "#username");
+		// password field
+		var password = document.createElement("input");
+		password.setAttribute("placeholder", "Password");
+		password.setAttribute("type", "password");
+		password.setAttribute("id", "#password");
+		// login button
+		var adminRegister = document.createElement("button");
+		adminRegister.setAttribute("id", "#adminRegisterButton");
+		adminLogin.innerHTML = "Register";
+		// add the fields to the html div "#adminDiv"
+		adminDiv.appendChild(fName);
+		adminDiv.appendChild(lName);
+		adminDiv.appendChild(username);
+		adminDiv.appendChild(password);
+		adminDiv.appendChild(adminRegister);
+		// check to see if the credentials are valid
+		adminRegister.onclick = function() {
+			var data = encodeURI("fnam="+fName.value+"&lname="+lName.value+"&username="+ username.value + "&password=" + password.value);
+			fetch("https://clikkr.herokuapp.com/admin", {
+				method: "POST",
+				body: data,
+				headers: {"Content-Type": "application/x-www-form-urlencoded"}
+			}).then(function(response) {
+					//do something
+				});
+		}
+	}
+
 
 	// if admin button is clicked, check authorization and redirect
 	adminAccountButton.onclick = function() {
