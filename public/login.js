@@ -69,7 +69,7 @@ function startLoginPage() {
 		// login button
 		var adminRegister = document.createElement("button");
 		adminRegister.setAttribute("id", "#adminRegisterButton");
-		adminLogin.innerHTML = "Register";
+		adminRegister.innerHTML = "Register";
 		// add the fields to the html div "#adminDiv"
 		adminDiv.appendChild(fName);
 		adminDiv.appendChild(lName);
