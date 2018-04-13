@@ -302,7 +302,7 @@ function startAdminPage() {
 				questionBubble.setAttribute("id", "#questionBubble");
 				// This is the topic
 				questionBubble.innerHTML = record.topic;
-				var topicID = record.ID;
+				var topicID = record.tid;
 				newTopicDiv.appendChild(questionBubble);
 				// open a topic tab when clicked and show all questions
 				questionBubble.onclick = function() {
