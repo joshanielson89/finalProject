@@ -12,37 +12,50 @@ function startLoginPage() {
 	// ******** admin section ******** //	
 	// create admin option div
 	var adminDiv = document.createElement("div");
-	adminDiv.setAttribute("id", "#adminDiv");
+	adminDiv.setAttribute("id", "adminDiv");
 
 	// create admin button selector
 	var adminAccountButton = document.createElement("button");
-	adminAccountButton.setAttribute("id", "#adminAccountButton");
+	adminAccountButton.setAttribute("id", "adminAccountButton");
 	adminAccountButton.innerHTML = "Login";
 
 	var registerAdminButton = document.createElement("button");
-	registerAdminButton.setAttribute('id', '#registerAdminButton');
-	registerAdminButton.innerHTML = "Register";
+	registerAdminButton.setAttribute('id', 'registerAdminButton');
+	registerAdminButton.innerHTML = "Sign Up";
 
+	var smallCTA = document.createElement('span');
+	smallCTA.setAttribute('id','smallCTA');
+	smallCTA.innerHTML = 'or';
 	
+	var nowSpan = document.createElement('span');
+	nowSpan.setAttribute('id', 'nowSpan');
+	nowSpan.innerHTML = 'now!';
+
+	var callToAction = document.createElement('span');
+	callToAction.setAttribute('id','callToAction');
+	callToAction.innerHTML = 'Want to make your own games?';
 	// append admin to wrapper
-	adminDiv.appendChild(registerAdminButton);
+	adminDiv.appendChild(callToAction);
 	adminDiv.appendChild(adminAccountButton);
+	adminDiv.appendChild(smallCTA);
+	adminDiv.appendChild(registerAdminButton);
+	adminDiv.appendChild(nowSpan);
 	wrapperDiv.appendChild(adminDiv);
 
 	// ******** student section ******** //
 	// create student section
 	var studentDiv = document.createElement("div");
-	studentDiv.setAttribute("id", "#studentDiv");
+	studentDiv.setAttribute("id", "studentDiv");
 
 	// make html
-	studentDiv.insertAdjacentHTML("beforeend", "<p>" + "Please enter session ID" + "</p>")
-	studentDiv.insertAdjacentHTML("beforeend", '<input type = "text" id = "sessionID" placeholder="Session ID"/>')
+
+	studentDiv.insertAdjacentHTML("beforeend", '<input type = "text" id = "gameID" placeholder="Game ID"/>')
 	studentDiv.insertAdjacentHTML("beforeend", "<br>");
 
 	// make join session button
 	var joinSessionButton = document.createElement("button");
-	joinSessionButton.setAttribute("id", "#joinSessionButton");
-	joinSessionButton.innerHTML = "Join Session";
+	joinSessionButton.setAttribute("id", "joinGameButton");
+	joinSessionButton.innerHTML = "Enter";
 	// add join session to student div
 	studentDiv.appendChild(joinSessionButton);
 
@@ -52,25 +65,25 @@ function startLoginPage() {
 		adminDiv.innerHTML = "";
 		var fName = document.createElement('input');
 		fName.setAttribute("placeholder", 'First Name');
-		fName.setAttribute('id', "#fName");
+		fName.setAttribute('id', "fName");
 
 		var lName = document.createElement('input');
 		lName.setAttribute('placeholder', 'Last Name');
-		lName.setAttribute('id', '#lName');
+		lName.setAttribute('id', 'lName');
 
 		var username = document.createElement("input");
 		username.setAttribute("placeholder", "Username");
-		username.setAttribute("id", "#username");
+		username.setAttribute("id", "username");
 		// password field
 		var password = document.createElement("input");
 		password.setAttribute("placeholder", "Password");
 		password.setAttribute("type", "password");
-		password.setAttribute("id", "#password");
+		password.setAttribute("id", "password");
 		// login button
 		var adminRegister = document.createElement("button");
-		adminRegister.setAttribute("id", "#adminRegisterButton");
+		adminRegister.setAttribute("id", "adminRegisterButton");
 		adminRegister.innerHTML = "Register";
-		// add the fields to the html div "#adminDiv"
+		// add the fields to the html div "adminDiv"
 		adminDiv.appendChild(fName);
 		adminDiv.appendChild(lName);
 		adminDiv.appendChild(username);
@@ -95,17 +108,17 @@ function startLoginPage() {
 		adminDiv.innerHTML = "";
 		var username = document.createElement("input");
 		username.setAttribute("placeholder", "Username");
-		username.setAttribute("id", "#username");
+		username.setAttribute("id", "username");
 		// password field
 		var password = document.createElement("input");
 		password.setAttribute("placeholder", "Password");
 		password.setAttribute("type", "password");
-		password.setAttribute("id", "#password");
+		password.setAttribute("id", "password");
 		// login button
 		var adminLogin = document.createElement("button");
-		adminLogin.setAttribute("id", "#adminLoginButton");
+		adminLogin.setAttribute("id", "adminLoginButton");
 		adminLogin.innerHTML = "Login";
-		// add the fields to the html div "#adminDiv"
+		// add the fields to the html div "adminDiv"
 		adminDiv.appendChild(username);
 		adminDiv.appendChild(password);
 		adminDiv.appendChild(adminLogin);
@@ -168,7 +181,7 @@ function startStudentPage() {
 
 	// create question div
 	var questionDiv = document.createElement("div");
-	questionDiv.setAttribute("id", "#questionDiv");
+	questionDiv.setAttribute("id", "questionDiv");
 	questionDiv.innerHTML = "Please wait for next question";
 	wrapperDiv.appendChild(questionDiv);
 	var alreadyQuestion = false;
@@ -198,7 +211,7 @@ function startStudentPage() {
 					answerButtonDiv.innerHTML = "";
 					// create answer buttons
 					var answerButtonA = document.createElement("button");
-					answerButtonA.setAttribute("id", "#answerButtonA");
+					answerButtonA.setAttribute("id", "answerButtonA");
 					answerButtonA.innerText = "A"
 					answerButtonDiv.appendChild(answerButtonA);
 					// when user clicks here, send answer to server
@@ -210,7 +223,7 @@ function startStudentPage() {
 					}
 
 					var answerButtonB = document.createElement("button");
-					answerButtonB.setAttribute("id", "#answerButtonB");
+					answerButtonB.setAttribute("id", "answerButtonB");
 					answerButtonB.innerText = "B"
 					answerButtonDiv.appendChild(answerButtonB);
 					answerButtonB.onclick = function() {
@@ -221,7 +234,7 @@ function startStudentPage() {
 					}
 
 					var answerButtonC = document.createElement("button");
-					answerButtonC.setAttribute("id", "#answerButtonC");
+					answerButtonC.setAttribute("id", "answerButtonC");
 					answerButtonC.innerText = "C"
 					answerButtonDiv.appendChild(answerButtonC);
 					answerButtonC.onclick = function() {
@@ -232,7 +245,7 @@ function startStudentPage() {
 					}
 
 					var answerButtonD = document.createElement("button");
-					answerButtonD.setAttribute("id", "#answerButtonD");
+					answerButtonD.setAttribute("id", "answerButtonD");
 					answerButtonD.innerText = "D"
 					answerButtonDiv.appendChild(answerButtonD);
 					answerButtonD.onclick = function() {
@@ -259,13 +272,13 @@ function startAdminPage() {
 
 	// create navigation div
 	var navDiv = document.createElement("div");
-	navDiv.setAttribute("id", "#navDiv");
+	navDiv.setAttribute("id", "navDiv");
 	wrapperDiv.appendChild(navDiv);
 
 	// NAV OPTIONS ARE "NEW QUESTION" AND "ACCOUNT" // 
 	// Create new question button
 	var newQuestionButton = document.createElement("button");
-	newQuestionButton.setAttribute("id", "#newQuestionButton");
+	newQuestionButton.setAttribute("id", "newQuestionButton");
 	newQuestionButton.innerHTML = "New Topic";
 	navDiv.appendChild(newQuestionButton);
 	// if this button is clicked, make a new question
@@ -274,13 +287,13 @@ function startAdminPage() {
 		wrapperDiv.innerHTML = "";
 		// create navigation div
 		var navDiv = document.createElement("div");
-		navDiv.setAttribute("id", "#navDiv");
+		navDiv.setAttribute("id", "navDiv");
 		wrapperDiv.appendChild(navDiv);
 
 		// NAV OPTIONS ARE "RETURN TO ADMIN HOME" // 
 		// Create button to return to admin page
 		var returnToAdminPageButton = document.createElement("button");
-		returnToAdminPageButton.setAttribute("id", "#returnToAdminPageButton");
+		returnToAdminPageButton.setAttribute("id", "returnToAdminPageButton");
 		returnToAdminPageButton.innerHTML = "Admin Home";
 		navDiv.appendChild(returnToAdminPageButton);
 		// if this button is clicked, return user to admin home page
@@ -289,13 +302,13 @@ function startAdminPage() {
 		}
 		// Create new question input field
 		var questionDiv = document.createElement("div");
-		questionDiv.setAttribute("id", "#questionDiv");
+		questionDiv.setAttribute("id", "questionDiv");
 		wrapperDiv.appendChild(questionDiv);
 		questionDiv.insertAdjacentHTML("beforeend", "<input type = 'text' id = 'newQuestionInput' placeholder = 'New Topic' />" )
 
 		// create submit button
 		var submitNewQuestionButton = document.createElement("button");
-		submitNewQuestionButton.setAttribute("id", "#submitNewQuestionButton");
+		submitNewQuestionButton.setAttribute("id", "submitNewQuestionButton");
 		submitNewQuestionButton.innerHTML = "Submit";
 		questionDiv.appendChild(submitNewQuestionButton);
 
@@ -316,7 +329,7 @@ function startAdminPage() {
 
 	// Create account button
 	var accountOptionsButton = document.createElement("button");
-	accountOptionsButton.setAttribute("id", "#accountOptionsButton");
+	accountOptionsButton.setAttribute("id", "accountOptionsButton");
 	accountOptionsButton.innerHTML = "Account";
 	navDiv.appendChild(accountOptionsButton);
 	// if this button is clicked, open account options
@@ -340,12 +353,12 @@ function startAdminPage() {
 			// this will check every record
 			records.forEach(function (record){
 				var newTopicDiv = document.createElement("div");
-				newTopicDiv.setAttribute("id", "#newTopicDiv");
+				newTopicDiv.setAttribute("id", "newTopicDiv");
 				bubbleDiv.appendChild(newTopicDiv);
 
 				// this is the topic button to enter a topic
 				var questionBubble = document.createElement("button");
-				questionBubble.setAttribute("id", "#questionBubble");
+				questionBubble.setAttribute("id", "questionBubble");
 				// This is the topic
 				questionBubble.innerHTML = record.topic;
 				var topicID = record.tid;
@@ -359,7 +372,7 @@ function startAdminPage() {
 
 				// this will delete an entire topic
 				var deleteQuestion = document.createElement("button");
-				deleteQuestion.setAttribute("id", "#deleteQuestion");
+				deleteQuestion.setAttribute("id", "deleteQuestion");
 				deleteQuestion.innerHTML = "X";
 				newTopicDiv.appendChild(deleteQuestion);
 
@@ -383,12 +396,12 @@ function startQuestionPage(topicID) {
 
 	// CREATE NAVIGATION DIV
 	var navDiv = document.createElement("div");
-	navDiv.setAttribute("id", "#navDiv");
+	navDiv.setAttribute("id", "navDiv");
 	wrapperDiv.appendChild(navDiv);
 
 	// CREATE QUESTION LIST DIV
 	var QListDiv = document.createElement("div");
-	QListDiv.setAttribute("id", "#QListDiv");
+	QListDiv.setAttribute("id", "QListDiv");
 	wrapperDiv.appendChild(QListDiv);
 
 	// FILL QUESTION LIST DIV FROM DB
@@ -400,12 +413,12 @@ function startQuestionPage(topicID) {
 			records.forEach(function (record){
 				console.log("This is a question");
 				var newQuestionDiv = document.createElement("div");
-				newQuestionDiv.setAttribute("id", "#newQuestionDiv");
+				newQuestionDiv.setAttribute("id", "newQuestionDiv");
 				QListDiv.appendChild(newQuestionDiv);
 
 				// this is the topic button to enter a topic
 				var questionBubble = document.createElement("button");
-				questionBubble.setAttribute("id", "#questionBubble");
+				questionBubble.setAttribute("id", "questionBubble");
 				// This is the question
 				questionBubble.innerHTML = record.question;
 				newQuestionDiv.appendChild(questionBubble);
@@ -415,7 +428,7 @@ function startQuestionPage(topicID) {
 				}
 
 				var delQuestion = document.createElement("button");
-				delQuestion.setAttribute("id", "#delQuestion")
+				delQuestion.setAttribute("id", "delQuestion")
 				delQuestion.innerHTML = "X";
 				newQuestionDiv.appendChild(delQuestion);
 				// to delete a question
@@ -438,7 +451,7 @@ function startQuestionPage(topicID) {
 	// NAV OPTIONS ARE "RETURN TO ADMIN HOME" // 
 	// Create button to return to admin page
 	var returnToAdminPageButton = document.createElement("button");
-	returnToAdminPageButton.setAttribute("id", "#returnToAdminPageButton");
+	returnToAdminPageButton.setAttribute("id", "returnToAdminPageButton");
 	returnToAdminPageButton.innerHTML = "Admin Home";
 	navDiv.appendChild(returnToAdminPageButton);
 	// if this button is clicked, return user to admin home page
@@ -447,7 +460,7 @@ function startQuestionPage(topicID) {
 	}
 	// create button to add a question to a topic
 	var newQuestionInTopicButton = document.createElement("button");
-	newQuestionInTopicButton.setAttribute("id", "#newQuestionInTopicButton");
+	newQuestionInTopicButton.setAttribute("id", "newQuestionInTopicButton");
 	newQuestionInTopicButton.innerHTML = "New Question";
 	navDiv.appendChild(newQuestionInTopicButton);
 	// to make a new question
@@ -456,13 +469,13 @@ function startQuestionPage(topicID) {
 		wrapperDiv.innerHTML = "";
 		// create navigation div
 		var navDiv = document.createElement("div");
-		navDiv.setAttribute("id", "#navDiv");
+		navDiv.setAttribute("id", "navDiv");
 		wrapperDiv.appendChild(navDiv);
 
 		// NAV OPTIONS ARE "RETURN TO ADMIN HOME" // 
 		// Create button to return to admin page
 		var returnToAdminPageButton = document.createElement("button");
-		returnToAdminPageButton.setAttribute("id", "#returnToAdminPageButton");
+		returnToAdminPageButton.setAttribute("id", "returnToAdminPageButton");
 		returnToAdminPageButton.innerHTML = "Admin Home";
 		navDiv.appendChild(returnToAdminPageButton);
 		// if this button is clicked, return user to admin home page
@@ -471,7 +484,7 @@ function startQuestionPage(topicID) {
 		}
 		// Create new question input field
 		var questionDiv = document.createElement("div");
-		questionDiv.setAttribute("id", "#questionDiv");
+		questionDiv.setAttribute("id", "questionDiv");
 		wrapperDiv.appendChild(questionDiv);
 		var questionHTML = "<input type = 'text' id = 'newQuestionInput' placeholder = 'New Question' /> " + "<br>" +
 						   '<input type = "text" id = "answerChoiceA" class = "answerChoices" placeholder = "Choice A" />' + "<br>" + 
@@ -482,7 +495,7 @@ function startQuestionPage(topicID) {
 
 		// create submit button
 		var submitNewQuestionButton = document.createElement("button");
-		submitNewQuestionButton.setAttribute("id", "#submitNewQuestionButton");
+		submitNewQuestionButton.setAttribute("id", "submitNewQuestionButton");
 		submitNewQuestionButton.innerHTML = "Submit";
 		questionDiv.appendChild(submitNewQuestionButton);
 
@@ -510,13 +523,13 @@ function startAccountOptionsPage() {
 
 		// create navigation div
 	var navDiv = document.createElement("div");
-	navDiv.setAttribute("id", "#navDiv");
+	navDiv.setAttribute("id", "navDiv");
 	wrapperDiv.appendChild(navDiv);
 
 	// NAV OPTIONS ARE "NEW QUESTION" AND "ACCOUNT" // 
 	// Create button to return to admin page
 	var returnToAdminPageButton = document.createElement("button");
-	returnToAdminPageButton.setAttribute("id", "#returnToAdminPageButton");
+	returnToAdminPageButton.setAttribute("id", "returnToAdminPageButton");
 	returnToAdminPageButton.innerHTML = "Admin Home";
 	navDiv.appendChild(returnToAdminPageButton);
 	// if this button is clicked, return user to admin home page
@@ -603,7 +616,7 @@ function startAccountOptionsPage() {
 
 	// display all admin information here
 	var dataTable = document.createElement("table");
-	dataTable.setAttribute("id", "#dataTable");
+	dataTable.setAttribute("id", "dataTable");
 	wrapperDiv.appendChild(dataTable);
 		
 	// Get and LIST all admin information
@@ -692,7 +705,7 @@ function editRecordSetup(record) {
 	editSetup.appendChild(changePasswordDiv);
 
 	var changePasswordButton = document.createElement("button");
-	changePasswordButton.setAttribute("id", "#changePasswordButton");
+	changePasswordButton.setAttribute("id", "changePasswordButton");
 	changePasswordButton.innerHTML = "Change Password";
 	changePasswordDiv.appendChild(changePasswordButton);
 	// if change password is clicked
@@ -765,12 +778,12 @@ function editRecordSetup(record) {
 	}
 
 	// var setupNote = document.createElement("p");
-	// setupNote.setAttribute("id", "#setupNote");
+	// setupNote.setAttribute("id", "setupNote");
 	// setupNote.innerHTML = "If you do not want to update your password, click 'Update Record'"
 	// editSetup.appendChild(setupNote);
 
 	// var updateButton = document.createElement("button");
-	// updateButton.setAttribute("id", "#updateButton");
+	// updateButton.setAttribute("id", "updateButton");
 	// updateButton.innerHTML = "Update Record";
 	// editSetup.appendChild(updateButton);
 
@@ -797,13 +810,13 @@ function projectCurrentQuestion(question) {
 
 			// CREATE NAVIGATION DIV
 			var navDiv = document.createElement("div");
-			navDiv.setAttribute("id", "#navDiv");
+			navDiv.setAttribute("id", "navDiv");
 			wrapperDiv.appendChild(navDiv);
 
 			// NAV OPTIONS ARE "RETURN TO ADMIN HOME" // 
 			// Create button to return to admin page
 			var returnToAdminPageButton = document.createElement("button");
-			returnToAdminPageButton.setAttribute("id", "#returnToAdminPageButton");
+			returnToAdminPageButton.setAttribute("id", "returnToAdminPageButton");
 			returnToAdminPageButton.innerHTML = "Admin Home";
 			navDiv.appendChild(returnToAdminPageButton);
 			// if this button is clicked, return user to admin home page
@@ -819,30 +832,30 @@ function projectCurrentQuestion(question) {
 					console.log("The response2 is", questionData);
 					// Display the Session ID
 					var sessionidDiv = document.createElement("div");
-					sessionidDiv.setAttribute("id", "#sessionidDiv");
+					sessionidDiv.setAttribute("id", "sessionidDiv");
 					sessionidDiv.innerHTML = "Session: " + questionData;
 					wrapperDiv.appendChild(sessionidDiv);
 
 					var timerDiv = document.createElement("div");
-					timerDiv.id = "#timerDiv";
+					timerDiv.id = "timerDiv";
 					wrapperDiv.appendChild(timerDiv);
 
 					var timerInput = document.createElement("input");
-					timerInput.id = "#timerInput";
+					timerInput.id = "timerInput";
 					timerInput.placeholder = "Set Time";
 					timerDiv.appendChild(timerInput);
 
 					var timerStartButton = document.createElement("button");
-					timerStartButton.id = "#timerStartButton";
+					timerStartButton.id = "timerStartButton";
 					timerStartButton.innerHTML = "Start";
 					timerDiv.appendChild(timerStartButton);
 
 					var overrideButtonDiv = document.createElement("div");
-					overrideButtonDiv.id = "#overrideButtonDiv";
+					overrideButtonDiv.id = "overrideButtonDiv";
 					timerDiv.appendChild(overrideButtonDiv);
 
 					var answerDisplayDiv = document.createElement("div");
-					answerDisplayDiv.id = "#answerDisplayDiv";
+					answerDisplayDiv.id = "answerDisplayDiv";
 					timerDiv.appendChild(answerDisplayDiv);
 					var currentTimer = false;
 					
@@ -861,7 +874,7 @@ function projectCurrentQuestion(question) {
 							// add override button
 							overrideButtonDiv.innerHTML = "";
 							var overrideButton = document.createElement("button");
-							overrideButton.id = "#overrideButton";
+							overrideButton.id = "overrideButton";
 							overrideButton.innerHTML = "End Question";
 							overrideButtonDiv.appendChild(overrideButton);
 
@@ -906,12 +919,12 @@ function projectCurrentQuestion(question) {
 							var timer = new Timer();
 							currentTimer = true;
 							timer.start({countdown: true, startValues: {seconds: parseInt(timerInputValue)}});
-							$('#countdownExample .values').html(timer.getTimeValues().toString());
+							$('countdownExample .values').html(timer.getTimeValues().toString());
 							timer.addEventListener('secondsUpdated', function (e) {
-							    $('#countdownExample .values').html(timer.getTimeValues().toString());
+							    $('countdownExample .values').html(timer.getTimeValues().toString());
 							});
 							timer.addEventListener('targetAchieved', function (e) {
-							    // $('#countdownExample .values').html("Time is up!!");
+							    // $('countdownExample .values').html("Time is up!!");
 							  
 							    // do fetch to get answers and display them
 							    if (override == false){
@@ -940,7 +953,7 @@ function projectCurrentQuestion(question) {
 
 					// Display the question
 					var questionDiv = document.createElement("div");
-					questionDiv.setAttribute("id", "#questionDiv");
+					questionDiv.setAttribute("id", "questionDiv");
 					var currentQuestionHTML = "<div id = 'questionBro'>" + 
 												'<div id = "currentQuestion">'+ question.question + '<br>' + '</div>'+
 												'<div class = "answerChoices">' + "A: " + question.choicea + '<br>' + '</div>'+
