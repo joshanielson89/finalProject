@@ -407,7 +407,7 @@ function startAdminPage() {
 				if(topicColor == 1){
 					newTopicDiv.style.backgroundColor = "#0ad000";
 					questionBubble.style.backgroundColor = "#31e728";
-					newTopicDiv.style.marginLeft = "100px";
+					// newTopicDiv.style.marginLeft = "100px";
 				}else if(topicColor == 2){
 					newTopicDiv.style.backgroundColor = "#02869f";
 					questionBubble.style.backgroundColor = "#28b4ce";
@@ -417,6 +417,7 @@ function startAdminPage() {
 				}else{
 					newTopicDiv.style.backgroundColor = "#fd0006";
 					questionBubble.style.backgroundColor = "#fe2c31";
+					newTopicDiv.style.marginRight = '0px';
 				}
 
 				// This is the topic
