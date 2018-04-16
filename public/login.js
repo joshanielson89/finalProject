@@ -34,6 +34,13 @@ function startLoginPage() {
 	var callToAction = document.createElement('span');
 	callToAction.setAttribute('id','callToAction');
 	callToAction.innerHTML = 'Want to make your own games?';
+
+	var home = document.createElement('button');
+	home.setAttribute('id', 'home');
+	home.innerHTML = "play";
+	home.onclick = function(){
+		startLoginPage();
+	}
 	// append admin to wrapper
 	adminDiv.appendChild(callToAction);
 	adminDiv.appendChild(adminAccountButton);
@@ -83,21 +90,30 @@ function startLoginPage() {
 		var adminRegister = document.createElement("button");
 		adminRegister.setAttribute("id", "adminRegisterButton");
 		adminRegister.innerHTML = "Register";
+
+		smallCTA.innerHTML = 'Already have an account?';
+		smallCTA.setAttribute('id', 'loginCTA');
+
+		adminAccountButton.setAttribute('id','loginButton');
 		// add the fields to the html div "adminDiv"
 		adminDiv.appendChild(fName);
 		adminDiv.appendChild(lName);
 		adminDiv.appendChild(username);
 		adminDiv.appendChild(password);
 		adminDiv.appendChild(adminRegister);
+		adminDiv.appendChild(smallCTA);
+		adminDiv.appendChild(adminAccountButton);
 		// check to see if the credentials are valid
 		adminRegister.onclick = function() {
-			var data = encodeURI("fnam="+fName.value+"&lname="+lName.value+"&username="+ username.value + "&password=" + password.value);
+			var data = encodeURI("fName="+fName.value+"&lName="+lName.value+"&username="+ username.value + "&password=" + password.value);
 			fetch("https://clikkr.herokuapp.com/admin", {
 				method: "POST",
 				body: data,
 				headers: {"Content-Type": "application/x-www-form-urlencoded"}
 			}).then(function(response) {
-					//do something
+					var pageTitle = document.querySelector('#pageTitle');
+					pageTitle.style.display = 'none';
+					startAdminPage();
 				});
 		}
 	}
@@ -118,10 +134,25 @@ function startLoginPage() {
 		var adminLogin = document.createElement("button");
 		adminLogin.setAttribute("id", "adminLoginButton");
 		adminLogin.innerHTML = "Login";
+
+		var registerAdmin = registerAdminButton;
+		registerAdmin.setAttribute('id', 'adminRegister');
+		
+		var noAccount = document.createElement('span');
+		noAccount.innerHTML = "don't have an account?";
+		noAccount.setAttribute('id', 'noAccount');
+
+		smallCTA.innerHTML = "or";
+		smallCTA.setAttribute('id', 'or');
+		
 		// add the fields to the html div "adminDiv"
 		adminDiv.appendChild(username);
 		adminDiv.appendChild(password);
 		adminDiv.appendChild(adminLogin);
+		adminDiv.appendChild(noAccount);
+		adminDiv.appendChild(registerAdmin);
+		adminDiv.appendChild(smallCTA);
+		adminDiv.appendChild(home);
 		// check to see if the credentials are valid
 		adminLogin.onclick = function() {
 			var data = encodeURI("username="+ username.value + "&password=" + password.value);
@@ -140,6 +171,8 @@ function startLoginPage() {
 				if (response.status == 200) {
 					console.log(response.data);
 					console.log("successfullly Logged in");
+					var pageTitle = document.querySelector('#pageTitle');
+					pageTitle.style.display = 'none';
 					startAdminPage();
 				} else{
 					// print error here
@@ -652,8 +685,8 @@ function startAccountOptionsPage() {
 				}
 
 				// assign record elements to table elements
-				fnameRecord.innerHTML = record.fName;
-				lnameRecord.innerHTML = record.lName;
+				fnameRecord.innerHTML = record.fname;
+				lnameRecord.innerHTML = record.lname;
 				usernameRecord.innerHTML = record.username;
 				editRecord.innerHTML = "Edit";
 				deleteRecord.innerHTML = "Delete";
