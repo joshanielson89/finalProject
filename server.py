@@ -596,6 +596,10 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 			file = open('public/easytimer.min.js', 'rb')
 			self.wfile.write(file.read())
 			return
+		elif self.path == "/favicon.ico":
+			self.send_response(200)
+			self.end_headers()
+			return
 
 def changeSessionID():
 	global gSessionID
