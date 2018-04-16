@@ -1024,7 +1024,7 @@ function projectCurrentQuestion(question) {
 												'<div class = "answerChoices">' + "B: " + question.choiceb + '<br>' + '</div>'+
 												'<div class = "answerChoices">' + "C: " + question.choicec + '<br>' + '</div>'+
 												'<div class = "answerChoices">' + "D: " + question.choiced + '<br>' + '</div>'+
-										  "</div>"
+											"</div>"
 					questionDiv.innerHTML = currentQuestionHTML;
 					wrapperDiv.appendChild(questionDiv);
 				})

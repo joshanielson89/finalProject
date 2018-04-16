@@ -262,3 +262,8 @@ input:focus, button:focus{
 	font-size: 16pt;
 	left: calc(100% - 30px);
 }
+
+#bubbleDiv{
+	width: 80%;
+	margin: 0 auto;
+}
