@@ -232,6 +232,7 @@ input:focus, button:focus{
 #bankHeader{
 	text-align: center;
 	font-size: 45pt;
+	margin-top: 0;
 }
 
 #newTopicDiv{
@@ -267,4 +268,5 @@ input:focus, button:focus{
 	position: relative;
 	width:1400px;
 	margin: 0 auto;
+	top: 0;
 }
