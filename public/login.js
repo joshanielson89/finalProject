@@ -186,7 +186,7 @@ function startLoginPage() {
 	joinSessionButton.onclick = function() {
 		console.log("starting login");
 		// input1 is the session id field
-		var input1 = document.querySelector("#sessionID").value;
+		var input1 = document.querySelector("#gameID").value;
 		// fetch current sessionID and check if input is equivelent
 		fetch("https://clikkr.herokuapp.com/question/cSessionID").then(function(response) {
 			// this will convert it to json data
@@ -195,6 +195,8 @@ function startLoginPage() {
 				if (input1 == records) {
 					console.log("Login successful. Redirecting");
 					// change page to student view
+					var pageTitle = document.querySelector('#pageTitle');
+					pageTitle.style.display = "none";
 					startStudentPage();
 				} else {
 					alert("Invalid Session Key");
@@ -400,7 +402,7 @@ function startAdminPage() {
 
 				// this is the topic button to enter a topic
 				var questionBubble = document.createElement("button");
-				questionBubble.setAttribute("id", "questionBubble");
+				questionBubble.setAttribute("id", "topicBubble");
 
 				if(topicColor == 1){
 					newTopicDiv.style.backgroundColor = "#0ad000";
@@ -981,9 +983,9 @@ function projectCurrentQuestion(question) {
 							var timer = new Timer();
 							currentTimer = true;
 							timer.start({countdown: true, startValues: {seconds: parseInt(timerInputValue)}});
-							$('countdownExample .values').html(timer.getTimeValues().toString());
+							$('#countdownExample .values').html(timer.getTimeValues().toString());
 							timer.addEventListener('secondsUpdated', function (e) {
-							    $('countdownExample .values').html(timer.getTimeValues().toString());
+							    $('#countdownExample .values').html(timer.getTimeValues().toString());
 							});
 							timer.addEventListener('targetAchieved', function (e) {
 							    // $('countdownExample .values').html("Time is up!!");
