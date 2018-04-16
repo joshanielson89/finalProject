@@ -219,9 +219,9 @@ input:focus, button:focus{
 	width: 80px;
 	height: 80px;
 	background: #ff7c00;
-	position: fixed;
-	bottom: 15px;
-	right: 60px;
+	position: sticky;
+	top: 87%;
+	left: 1400px;
 	border-radius: 50%;
 	color: white;
 	font-size: 50pt;
@@ -264,6 +264,7 @@ input:focus, button:focus{
 }
 
 #bubbleDiv{
-	width:1320px;
+	position: relative;
+	width:1400px;
 	margin: 0 auto;
 }

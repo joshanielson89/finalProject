@@ -315,7 +315,7 @@ function startAdminPage() {
 	var newQuestionButton = document.createElement("button");
 	newQuestionButton.setAttribute("id", "newTopicButton");
 	newQuestionButton.innerHTML = "+";
-	navDiv.appendChild(newQuestionButton);
+	
 	// if this button is clicked, make a new question
 	newQuestionButton.onclick = function() {
 		// clear page
@@ -380,6 +380,7 @@ function startAdminPage() {
 	questionBankHeader.setAttribute('id', 'bankHeader');
 	questionBankHeader.innerHTML = 'Question Banks';
 
+	bubbleDiv.appendChild(newQuestionButton);
 	bubbleDiv.appendChild(questionBankHeader);
 
 	wrapperDiv.appendChild(bubbleDiv);
@@ -407,7 +408,7 @@ function startAdminPage() {
 				if(topicColor == 1){
 					newTopicDiv.style.backgroundColor = "#0ad000";
 					questionBubble.style.backgroundColor = "#31e728";
-					// newTopicDiv.style.marginLeft = "100px";
+					newTopicDiv.style.marginLeft = "40px";
 				}else if(topicColor == 2){
 					newTopicDiv.style.backgroundColor = "#02869f";
 					questionBubble.style.backgroundColor = "#28b4ce";
