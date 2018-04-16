@@ -106,7 +106,7 @@ function startLoginPage() {
 		// check to see if the credentials are valid
 		adminRegister.onclick = function() {
 			var data = encodeURI("fName="+fName.value+"&lName="+lName.value+"&username="+ username.value + "&password=" + password.value);
-			fetch("https://clikkr.herokuapp.com/admin", {
+			fetch("https://klikr.herokuapp.com/admin", {
 				method: "POST",
 				body: data,
 				headers: {"Content-Type": "application/x-www-form-urlencoded"}
@@ -156,7 +156,7 @@ function startLoginPage() {
 		// check to see if the credentials are valid
 		adminLogin.onclick = function() {
 			var data = encodeURI("username="+ username.value + "&password=" + password.value);
-			fetch("https://clikkr.herokuapp.com/session", {
+			fetch("https://klikr.herokuapp.com/session", {
 				method: "POST",
 				body: data,
 				headers: {"Content-Type": "application/x-www-form-urlencoded"}
@@ -188,7 +188,7 @@ function startLoginPage() {
 		// input1 is the session id field
 		var input1 = document.querySelector("#gameID").value;
 		// fetch current sessionID and check if input is equivelent
-		fetch("https://clikkr.herokuapp.com/question/cSessionID").then(function(response) {
+		fetch("https://klikr.herokuapp.com/question/cSessionID").then(function(response) {
 			// this will convert it to json data
 			response.json().then(function(records) {
 				console.log("The response is", records);
@@ -230,7 +230,7 @@ function startStudentPage() {
 	// check every 3 seconds
 	setInterval(function() {
 		// do fetch stuff
-		fetch("https://clikkr.herokuapp.com/getQuestion/").then(function(response) {
+		fetch("https://klikr.herokuapp.com/getQuestion/").then(function(response) {
 		// this will convert it to json data
 		response.json().then(function(records) {
 			console.log(JSON.parse(records));
@@ -386,7 +386,7 @@ function startAdminPage() {
 
 	// call GET to get all questions
 	// this will return the whole topics DB
-	fetch("https://clikkr.herokuapp.com/topics").then(function(response) {
+	fetch("https://klikr.herokuapp.com/topics").then(function(response) {
 		// this will convert it to json data
 		response.json().then(function(records) {
 			var topicColor = 1;
@@ -469,7 +469,7 @@ function startQuestionPage(topicID) {
 	wrapperDiv.appendChild(QListDiv);
 
 	// FILL QUESTION LIST DIV FROM DB
-	fetch("https://clikkr.herokuapp.com/questions/" + topicID).then(function(response) {
+	fetch("https://klikr.herokuapp.com/questions/" + topicID).then(function(response) {
 		// this will convert it to json data
 		response.json().then(function(records) {
 			console.log("The response is", records);
@@ -684,7 +684,7 @@ function startAccountOptionsPage() {
 	wrapperDiv.appendChild(dataTable);
 		
 	// Get and LIST all admin information
-	fetch("https://clikkr.herokuapp.com/admin").then(function(response) {
+	fetch("https://klikr.herokuapp.com/admin").then(function(response) {
 		response.json().then(function(records) {
 			console.log("The response is", records);
 			// clear any previous table
@@ -810,7 +810,7 @@ function editRecordSetup(record) {
 				if(newPassword1.value != "" && newPassword1.value == newPassword2.value){
 					// check to see if the current password matches via post
 					var data = encodeURI("username="+ username.value + "&password=" + currentPassword.value + "&newPassword=" + newPassword1.value);
-					fetch("https://clikkr.herokuapp.com/pass/reset", {
+					fetch("https://klikr.herokuapp.com/pass/reset", {
 						method: "PUT",
 						body: data,
 						headers: {"Content-Type": "application/x-www-form-urlencoded"}
@@ -890,7 +890,7 @@ function projectCurrentQuestion(question) {
 
 			// creat div for session id
 			// get the session id and post it
-			fetch("https://clikkr.herokuapp.com/question/cSessionID").then(function(response) {
+			fetch("https://klikr.herokuapp.com/question/cSessionID").then(function(response) {
 				// this will convert it to json data
 				response.json().then(function(questionData) {
 					console.log("The response2 is", questionData);
@@ -960,7 +960,7 @@ function projectCurrentQuestion(question) {
 								timer.stop();
 								var counterDiv = document.querySelector("#countdownExample");
 								counterDiv.innerHTML = "";
-								fetch("https://clikkr.herokuapp.com/getAnswers").then(function(response) {
+								fetch("https://klikr.herokuapp.com/getAnswers").then(function(response) {
 									// this will convert it to json data
 									response.json().then(function(records) {
 										// display records here
@@ -992,7 +992,7 @@ function projectCurrentQuestion(question) {
 							  
 							    // do fetch to get answers and display them
 							    if (override == false){
-								    fetch("https://clikkr.herokuapp.com/getAnswers").then(function(response) {
+								    fetch("https://klikr.herokuapp.com/getAnswers").then(function(response) {
 										// this will convert it to json data
 										response.json().then(function(records) {
 											// display records here
@@ -1035,7 +1035,7 @@ function projectCurrentQuestion(question) {
 // THESE ARE REQUEST FUNCTIONS
 var createNewAdmin = function(fname, lname, username, password) {
 		var data = encodeURI("fname="+ fname + "&lname=" + lname + "&username=" + username + "&password=" + password);
-			fetch("https://clikkr.herokuapp.com/admin", {
+			fetch("https://klikr.herokuapp.com/admin", {
 				method: "POST",
 				body: data,
 				headers: {"Content-Type": "application/x-www-form-urlencoded"}
@@ -1063,7 +1063,7 @@ var createNewAdmin = function(fname, lname, username, password) {
 }
 
 var deleteAdminFromDB = function(adminID) {
-	fetch("https://clikkr.herokuapp.com/admin/" + adminID, {
+	fetch("https://klikr.herokuapp.com/admin/" + adminID, {
 		method: "DELETE"
 	}).then(function(response){
 		if (response.status == 200) {
@@ -1079,7 +1079,7 @@ var deleteAdminFromDB = function(adminID) {
 
 var createNewTopic = function(topic) {
 		var data = encodeURI("question="+ topic);
-			fetch("https://clikkr.herokuapp.com/topics", {
+			fetch("https://klikr.herokuapp.com/topics", {
 				method: "POST",
 				body: data,
 				headers: {"Content-Type": "application/x-www-form-urlencoded"}
@@ -1103,7 +1103,7 @@ var createNewTopic = function(topic) {
 }
 var createNewQuestion = function(topicId, question, choice1, choice2, choice3, choice4) {
 	var data = encodeURI("question="+ question + "&topic=" + topicId + "&choiceA=" + choice1 + "&choiceB=" + choice2 + "&choiceC=" + choice3 + "&choiceD=" + choice4);
-		fetch("https://clikkr.herokuapp.com/question", {
+		fetch("https://klikr.herokuapp.com/question", {
 			method: "POST",
 			body: data,
 			headers: {"Content-Type": "application/x-www-form-urlencoded"}
@@ -1127,7 +1127,7 @@ var createNewQuestion = function(topicId, question, choice1, choice2, choice3, c
 }
 var deleteTopicFromDB = function(questionID) {
 	deleteQuestionFromDB();
-	fetch("https://clikkr.herokuapp.com/topics/" + questionID, {
+	fetch("https://klikr.herokuapp.com/topics/" + questionID, {
 		method: "DELETE"
 	}).then(function(response){
 		if (response.status == 200) {
@@ -1144,7 +1144,7 @@ var deleteTopicFromDB = function(questionID) {
 }
 
 var deleteQuestionFromDB = function(questionID) {
-	fetch("https://clikkr.herokuapp.com/question/" + questionID, {
+	fetch("https://klikr.herokuapp.com/question/" + questionID, {
 		method: "DELETE"
 	}).then(function(response){
 		if (response.status == 200) {
@@ -1161,7 +1161,7 @@ var deleteQuestionFromDB = function(questionID) {
 }
 
 var setCurrentQuestion = function(questionId) {
-	fetch("https://clikkr.herokuapp.com/setQuestion/" + questionId).then(function(response) {
+	fetch("https://klikr.herokuapp.com/setQuestion/" + questionId).then(function(response) {
 		// this will convert it to json data
 		response.json().then(function(records) {
 			projectCurrentQuestion(records);
@@ -1172,7 +1172,7 @@ var setCurrentQuestion = function(questionId) {
 
 var sendAnswerToServer = function(answer) {
 		var data = encodeURI("answer="+ answer);
-			fetch("https://clikkr.herokuapp.com/answer", {
+			fetch("https://klikr.herokuapp.com/answer", {
 				method: "POST",
 				body: data,
 				headers: {"Content-Type": "application/x-www-form-urlencoded"}
