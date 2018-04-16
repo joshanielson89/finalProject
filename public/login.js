@@ -311,8 +311,8 @@ function startAdminPage() {
 	// NAV OPTIONS ARE "NEW QUESTION" AND "ACCOUNT" // 
 	// Create new question button
 	var newQuestionButton = document.createElement("button");
-	newQuestionButton.setAttribute("id", "newQuestionButton");
-	newQuestionButton.innerHTML = "New Topic";
+	newQuestionButton.setAttribute("id", "newTopicButton");
+	newQuestionButton.innerHTML = "+";
 	navDiv.appendChild(newQuestionButton);
 	// if this button is clicked, make a new question
 	newQuestionButton.onclick = function() {
@@ -373,8 +373,13 @@ function startAdminPage() {
 	// ******* BUBBLE DIV HERE ******** //
 	var bubbleDiv = document.createElement("div");
 	bubbleDiv.setAttribute("id", "bubbleDiv");
-	bubbleDiv.innerHTML = "Question bubbles here";
-	bubbleDiv.insertAdjacentHTML("beforeend", "<br>");
+
+	var questionBankHeader= document.createElement('h1');
+	questionBankHeader.setAttribute('id', 'bankHeader');
+	questionBankHeader.innerHTML = 'Question Banks';
+
+	bubbleDiv.appendChild(questionBankHeader);
+
 	wrapperDiv.appendChild(bubbleDiv);
 
 	// call GET to get all questions
@@ -382,16 +387,36 @@ function startAdminPage() {
 	fetch("https://clikkr.herokuapp.com/topics").then(function(response) {
 		// this will convert it to json data
 		response.json().then(function(records) {
+			var topicColor = 1;
 			console.log("The response is", records);
 			// this will check every record
 			records.forEach(function (record){
+
 				var newTopicDiv = document.createElement("div");
 				newTopicDiv.setAttribute("id", "newTopicDiv");
 				bubbleDiv.appendChild(newTopicDiv);
 
+				
+
 				// this is the topic button to enter a topic
 				var questionBubble = document.createElement("button");
 				questionBubble.setAttribute("id", "questionBubble");
+
+				if(topicColor == 1){
+					newTopicDiv.style.backgroundColor = "#0ad000";
+					questionBubble.style.backgroundColor = "#31e728";
+					newTopicDiv.style.marginLeft = "100px";
+				}else if(topicColor == 2){
+					newTopicDiv.style.backgroundColor = "#02869f";
+					questionBubble.style.backgroundColor = "#28b4ce";
+				}else if(topicColor ==3){
+					newTopicDiv.style.backgroundColor = "#ff7c00";
+					questionBubble.style.backgroundColor = "#ff932c";
+				}else{
+					newTopicDiv.style.backgroundColor = "#fd0006";
+					questionBubble.style.backgroundColor = "#fe2c31";
+				}
+
 				// This is the topic
 				questionBubble.innerHTML = record.topic;
 				var topicID = record.tid;
@@ -415,6 +440,10 @@ function startAdminPage() {
 						deleteTopicFromDB(record.tid);
 					} 
 					console.log("record deleted");
+				}
+				topicColor+=1;
+				if(topicColor > 4){
+					topicColor = 1;
 				}
 			})
 		})
